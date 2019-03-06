@@ -1,83 +1,40 @@
 const canceled = Symbol('canceled');
 
-/**
- * All events fired by draggable inherit this class. You can call `cancel()` to
- * cancel a specific event or you can check if an event has been canceled by
- * calling `canceled()`.
- * @abstract
- * @class AbstractEvent
- * @module AbstractEvent
- */
+// 整个拖拽库定义的事件基类
 export default class AbstractEvent {
-  /**
-   * Event type
-   * @static
-   * @abstract
-   * @property type
-   * @type {String}
-   */
+  // 事件类型
   static type = 'event';
 
-  /**
-   * Event cancelable
-   * @static
-   * @abstract
-   * @property cancelable
-   * @type {Boolean}
-   */
+  // 事件是否可取消
   static cancelable = false;
 
-  /**
-   * AbstractEvent constructor.
-   * @constructs AbstractEvent
-   * @param {object} data - Event data
-   */
+  //  事件携带的数据负载
   constructor(data) {
     this[canceled] = false;
     this.data = data;
   }
 
-  /**
-   * Read-only type
-   * @abstract
-   * @return {String}
-   */
+  // 获得事件类型
   get type() {
     return this.constructor.type;
   }
 
-  /**
-   * Read-only cancelable
-   * @abstract
-   * @return {Boolean}
-   */
+  // 判断事件是否可取消
   get cancelable() {
     return this.constructor.cancelable;
   }
 
-  /**
-   * Cancels the event instance
-   * @abstract
-   */
+  // 取消事件
   cancel() {
     this[canceled] = true;
   }
 
-  /**
-   * Check if event has been canceled
-   * @abstract
-   * @return {Boolean}
-   */
+  //  判断事件是否已经被取消
   canceled() {
     return Boolean(this[canceled]);
   }
 
-  /**
-   * Returns new event instance with existing event data.
-   * This method allows for overriding of event data.
-   * @param {Object} data
-   * @return {AbstractEvent}
-   */
+  // 事件克隆
   clone(data) {
     return new this.constructor({
       ...this.data,

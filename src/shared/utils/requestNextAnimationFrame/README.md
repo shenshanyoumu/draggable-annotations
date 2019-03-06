@@ -1,3 +1,3 @@
 ## requestNextAnimationFrame
 
-Utility method that requests the next animation frame, which is achieved by double wrapping animation frames.
+基于双缓冲的高效动画帧处理函数.

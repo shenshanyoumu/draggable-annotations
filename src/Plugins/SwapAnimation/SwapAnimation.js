@@ -2,14 +2,7 @@ import AbstractPlugin from 'shared/AbstractPlugin';
 
 const onSortableSorted = Symbol('onSortableSorted');
 
-/**
- * SwapAnimation default options
- * @property {Object} defaultOptions
- * @property {Number} defaultOptions.duration
- * @property {String} defaultOptions.easingFunction
- * @property {Boolean} defaultOptions.horizontal
- * @type {Object}
- */
+// 类似手机滑动拖放图片的动画行为
 export const defaultOptions = {
   duration: 150,
   easingFunction: 'ease-in-out',

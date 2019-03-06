@@ -6,6 +6,7 @@ const {runner} = require('./build/utils');
 
 let compiler;
 
+// 生产环境和开发环境的Webpack配置
 if (isProd) {
   compiler = webpack(createProductionConfig({analyser: useAnalyser}));
 } else {

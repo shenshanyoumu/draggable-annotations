@@ -1,18 +1,10 @@
-/**
- * The Emitter is a simple emitter class that provides you with `on()`, `off()` and `trigger()` methods
- * @class Emitter
- * @module Emitter
- */
+// 控制事件触发、回调函数执行的类
 export default class Emitter {
   constructor() {
     this.callbacks = {};
   }
 
-  /**
-   * Registers callbacks by event name
-   * @param {String} type
-   * @param {...Function} callbacks
-   */
+  // 基于特定事件类型的回调函数集合
   on(type, ...callbacks) {
     if (!this.callbacks[type]) {
       this.callbacks[type] = [];
@@ -23,11 +15,7 @@ export default class Emitter {
     return this;
   }
 
-  /**
-   * Unregisters callbacks by event name
-   * @param {String} type
-   * @param {Function} callback
-   */
+  // 将特定类型的特定回调函数从事件回调队列删除
   off(type, callback) {
     if (!this.callbacks[type]) {
       return null;
@@ -44,10 +32,7 @@ export default class Emitter {
     return this;
   }
 
-  /**
-   * Triggers event callbacks by event object
-   * @param {AbstractEvent} event
-   */
+  // 触发事件回调
   trigger(event) {
     if (!this.callbacks[event.type]) {
       return null;

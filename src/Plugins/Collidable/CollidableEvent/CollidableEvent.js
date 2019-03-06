@@ -1,11 +1,6 @@
 import AbstractEvent from 'shared/AbstractEvent';
 
-/**
- * Base collidable event
- * @class CollidableEvent
- * @module CollidableEvent
- * @extends AbstractEvent
- */
+// 可碰撞事件
 export class CollidableEvent extends AbstractEvent {
   static type = 'collidable';
 
@@ -20,12 +15,7 @@ export class CollidableEvent extends AbstractEvent {
   }
 }
 
-/**
- * Collidable in event
- * @class CollidableInEvent
- * @module CollidableInEvent
- * @extends CollidableEvent
- */
+// 当元素发生碰撞时，根据物理规则会出现一个形态压缩过程
 export class CollidableInEvent extends CollidableEvent {
   static type = 'collidable:in';
 
@@ -40,12 +30,7 @@ export class CollidableInEvent extends CollidableEvent {
   }
 }
 
-/**
- * Collidable out event
- * @class CollidableOutEvent
- * @module CollidableOutEvent
- * @extends CollidableEvent
- */
+// 当物体碰撞时，除了形态压缩，还会出现形态畸变过程
 export class CollidableOutEvent extends CollidableEvent {
   static type = 'collidable:out';
 

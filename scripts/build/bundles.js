@@ -1,3 +1,4 @@
+// 分模块打包配置
 const bundles = [
   {
     name: 'Draggable',

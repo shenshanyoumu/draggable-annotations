@@ -1,18 +1,11 @@
+// DOM元素的选择匹配函数
 const matchFunction =
   Element.prototype.matches ||
   Element.prototype.webkitMatchesSelector ||
   Element.prototype.mozMatchesSelector ||
   Element.prototype.msMatchesSelector;
 
-/**
- * Get the closest parent element of a given element that matches the given
- * selector string or matching function
- *
- * @param {Element} element The child element to find a parent of
- * @param {String|Function} selector The string or function to use to match
- *     the parent element
- * @return {Element|null}
- */
+// 根据选择器字符串或者匹配函数，得到匹配元素最近的父元素节点
 export default function closest(element, value) {
   if (!element) {
     return null;
@@ -31,8 +24,12 @@ export default function closest(element, value) {
   function conditionFn(currentElement) {
     if (!currentElement) {
       return currentElement;
+
+      // 针对选择器函数的匹配操作
     } else if (isSelector) {
       return matchFunction.call(currentElement, selector);
+
+      // 针对DOM节点列表的匹配
     } else if (isNodeList) {
       return [...nodeList].includes(currentElement);
     } else if (isElement) {
@@ -46,6 +43,7 @@ export default function closest(element, value) {
 
   let current = element;
 
+  // 从给定的元素向上遍历，直到document元素
   do {
     current = current.correspondingUseElement || current.correspondingElement || current;
 

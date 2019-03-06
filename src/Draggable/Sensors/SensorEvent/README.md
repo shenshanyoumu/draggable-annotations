@@ -1,79 +1,78 @@
-## SensorEvent
+## 传感器事件
 
-The base sensor event for all Sensor events that sensors emits.
+传感器触发的事件基类.
 
-| | |
-| --------------------- | ---------------------------------------------------------- |
-| **Interface**         | `SensorEvent`                                              |
-| **Cancelable**        | false                                                      |
-| **Cancel action**     | -                                                          |
-| **type**              | `sensor`                                                   |
+|                   |               |
+| ----------------- | ------------- |
+| **Interface**     | `SensorEvent` |
+| **Cancelable**    | false         |
+| **Cancel action** | -             |
+| **type**          | `sensor`      |
 
 ### API
 
 **`sensorEvent.originalEvent: Event`**  
-Read-only property for the original event that triggered the sensor event.
+触发传感事件的运行时原生事件.
 
 **`sensorEvent.clientX: Number`**  
-Read-only property for current X coordinates.
+事件对象携带的坐标信息，整合了触控和鼠标.
 
 **`sensorEvent.clientY: Number`**  
-Read-only property for current Y coordinates.
+事件对象携带的坐标信息，整合了触控和鼠标.
 
 **`sensorEvent.target: HTMLElement`**  
-Read-only property for the normalized target for both touch and mouse events.
-Returns the element that is behind cursor or touch pointer.
+触发事件的 DOM 元素
 
 **`sensorEvent.container: Number`**  
-Read-only property for the container that fired the sensor event
+触发传感事件的容器
 
 **`sensorEvent.pressure: Number`**  
-Read-only property for the pressure applied
+压力传感
 
 ## DragStartSensorEvent
 
-`DragStartSensorEvent` gets triggered by sensors for drag start.
+`DragStartSensorEvent` 拖拽开始触发.
 
-| | |
-| --------------------- | ---------------------------------------------------------- |
-| **Specification**     | `SensorEvent`                                              |
-| **Interface**         | `DragStartSensorEvent`                                     |
-| **Cancelable**        | true                                                       |
-| **Cancel action**     | Prevents drag start                                        |
-| **type**              | `drag:start`                                               |
+|                   |                        |
+| ----------------- | ---------------------- |
+| **Specification** | `SensorEvent`          |
+| **Interface**     | `DragStartSensorEvent` |
+| **Cancelable**    | true                   |
+| **Cancel action** | Prevents drag start    |
+| **type**          | `drag:start`           |
 
 ## DragMoveSensorEvent
 
-`DragMoveSensorEvent` gets triggered by sensors for drag move.
+`DragMoveSensorEvent` 拖拽过程中
 
-| | |
-| --------------------- | ---------------------------------------------------------- |
-| **Specification**     | `SensorEvent`                                              |
-| **Interface**         | `DragMoveSensorEvent`                                      |
-| **Cancelable**        | false                                                      |
-| **Cancel action**     | -                                                          |
-| **type**              | `drag:move`                                                |
+|                   |                       |
+| ----------------- | --------------------- |
+| **Specification** | `SensorEvent`         |
+| **Interface**     | `DragMoveSensorEvent` |
+| **Cancelable**    | false                 |
+| **Cancel action** | -                     |
+| **type**          | `drag:move`           |
 
 ## DragStopSensorEvent
 
-`DragStopSensorEvent` gets triggered by sensors for drag stop.
+`DragStopSensorEvent` 拖拽停止触发
 
-| | |
-| --------------------- | ---------------------------------------------------------- |
-| **Specification**     | `SensorEvent`                                              |
-| **Interface**         | `DragStopSensorEvent`                                      |
-| **Cancelable**        | false                                                      |
-| **Cancel action**     | -                                                          |
-| **type**              | `drag:stop`                                                |
+|                   |                       |
+| ----------------- | --------------------- |
+| **Specification** | `SensorEvent`         |
+| **Interface**     | `DragStopSensorEvent` |
+| **Cancelable**    | false                 |
+| **Cancel action** | -                     |
+| **type**          | `drag:stop`           |
 
 ## DragPressureSensorEvent
 
-`DragPressureSensorEvent` gets triggered by sensors for drag pressure.
+`DragPressureSensorEvent`拖拽拾取和拖拽释放
 
-| | |
-| --------------------- | ---------------------------------------------------------- |
-| **Specification**     | `SensorEvent`                                              |
-| **Interface**         | `DragPressureSensorEvent`                                  |
-| **Cancelable**        | false                                                      |
-| **Cancel action**     | -                                                          |
-| **type**              | `drag:pressure`                                            |
+|                   |                           |
+| ----------------- | ------------------------- |
+| **Specification** | `SensorEvent`             |
+| **Interface**     | `DragPressureSensorEvent` |
+| **Cancelable**    | false                     |
+| **Cancel action** | -                         |
+| **type**          | `drag:pressure`           |

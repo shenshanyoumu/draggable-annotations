@@ -1,40 +1,19 @@
 import AbstractEvent from 'shared/AbstractEvent';
 
-/**
- * Base drag event
- * @class DragEvent
- * @module DragEvent
- * @extends AbstractEvent
- */
+// 拖拽事件
 export class DragEvent extends AbstractEvent {
   static type = 'drag';
 
-  /**
-   * Draggables source element
-   * @property source
-   * @type {HTMLElement}
-   * @readonly
-   */
+  //  拖拽源对象
   get source() {
     return this.data.source;
   }
-
-  /**
-   * Draggables original source element
-   * @property originalSource
-   * @type {HTMLElement}
-   * @readonly
-   */
+  // 基于运行时的原始对象
   get originalSource() {
     return this.data.originalSource;
   }
 
-  /**
-   * Draggables mirror element
-   * @property mirror
-   * @type {HTMLElement}
-   * @readonly
-   */
+  // 可拖拽的镜像对象
   get mirror() {
     return this.data.mirror;
   }
@@ -49,12 +28,7 @@ export class DragEvent extends AbstractEvent {
     return this.data.sourceContainer;
   }
 
-  /**
-   * Sensor event
-   * @property sensorEvent
-   * @type {SensorEvent}
-   * @readonly
-   */
+  // 事件对应的传感器事件
   get sensorEvent() {
     return this.data.sensorEvent;
   }
@@ -176,12 +150,7 @@ export class DragOverContainerEvent extends DragEvent {
   }
 }
 
-/**
- * Drag out container event
- * @class DragOutContainerEvent
- * @module DragOutContainerEvent
- * @extends DragEvent
- */
+// 将元素拖拽出容器触发的事件
 export class DragOutContainerEvent extends DragEvent {
   static type = 'drag:out:container';
 
@@ -205,23 +174,12 @@ export class DragOutContainerEvent extends DragEvent {
 export class DragPressureEvent extends DragEvent {
   static type = 'drag:pressure';
 
-  /**
-   * Pressure applied on draggable element
-   * @property pressure
-   * @type {Number}
-   * @readonly
-   */
   get pressure() {
     return this.data.pressure;
   }
 }
 
-/**
- * Drag stop event
- * @class DragStopEvent
- * @module DragStopEvent
- * @extends DragEvent
- */
+// 拖拽停止事件
 export class DragStopEvent extends DragEvent {
   static type = 'drag:stop';
 }

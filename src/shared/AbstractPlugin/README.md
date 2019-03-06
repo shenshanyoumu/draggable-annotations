@@ -1,14 +1,14 @@
-## Abstract plugin
+## 插件基类
 
-This is the base class for all draggable plugins.
+Draggable 库基于插件系统构建，所谓插件其实就是一个实现了 API 接口契约的函数。
 
 ### API
 
 **`new AbstractPlugin(draggable: Draggable): AbstractPlugin`**  
-Creates an `AbstractPlugin` instance.
+创建 `AbstractPlugin`实例.
 
 **`abstractEvent.attach(): void`**  
-Attaches listeners for plugin.
+为插件绑定事件监听器.
 
 **`abstractEvent.detach(): void`**  
-Detaches listeners for plugin.
+将事件监听器与插件进行分离

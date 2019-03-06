@@ -7,47 +7,41 @@
   <img src="https://user-images.githubusercontent.com/643944/35602291-99e2c56e-0605-11e8-847f-95f1f6be1610.jpg" alt="">
 </a>
 
-> **Currently in beta!** While Draggable is very close to a full release, the API is still subject to change. We keep an updated CHANGELOG with every release, so when upgrading from a previous version, please check and see what has changed.
+> **Currently in beta!** 目前版本为 Beta 版，因此 API 还会发生变化。因此当该拖拽库版本升级时，请查看更新日志
 
-Get complete control over drag and drop behaviour with Draggable! Draggable abstracts
-native browser events into a comprehensive API to create a custom drag and drop experience.
-`Draggable` comes with additional modules: `Sortable`, `Droppable`, `Swappable`. Draggable
-itself does not perform any sorting behaviour while dragging, but does the heavy lifting, e.g.
-creates mirror, emits events, manages sensor events, makes elements draggable.
+基于 Draggable 库可以获得对拖拽行为的完全控制，Draggable 库将具体的浏览器事件行为抽象为一组 API 调用。
+`Draggable` 库伴随着 `Sortable`, `Droppable`, `Swappable`等库发布. Draggable 库在发生拖拽行为时并不会进行排序操作，但是可以通过事件机制来通知 Sortable 库的行为
 
-The additional modules are built on top of `Draggable` and therefore provide a similar API
-interface, for more information read the documentation below.
+**特性**
 
-**Features**
-
-- Works with native drag, mouse, touch and force touch events
-- Can extend dragging behaviour by hooking into draggables event life cycle
-- Can extend drag detection by adding sensors to draggable
+- 基于本地的拖拽、鼠标动作、触控行为构建
+- 可以通过注入拖拽生命周期钩子事件来扩展拖拽行为
+- 可以通过对可拖拽元素添加传感器来扩展拖拽检测能力
 - The library is targeted ES6 first
 
-## Table of Contents
+## 目录
 
-- [Install](#install)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Roadmap](#roadmap)
-- [Copyright](#copyright)
+- [安装](#install)
+- [文档](#documentation)
+- [源码贡献](#contributing)
+- [路线图](#roadmap)
+- [版权](#copyright)
 
-## Install
+## 安装
 
-You can install the library via npm.
+基于 npm 安装
 
 ```
 npm install @shopify/draggable --save
 ```
 
-or via yarn:
+或者基于 yarn 安装:
 
 ```
 yarn add @shopify/draggable
 ```
 
-or via CDN
+或者基于 CDN 安装
 
 ```html
 <!-- Entire bundle -->
@@ -66,30 +60,30 @@ or via CDN
 <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/plugins.js"></script>
 ```
 
-## Browser Compatibility
+## 浏览器兼容性检测
 
 | ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) |
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | Latest ✔                                                                                 | Latest ✔                                                                                    | 11+ ✔                                                                                                                        | Latest ✔                                                                              | Latest ✔                                                                                 | Latest ✔                                                                           |
 
-## Bundle sizes
+## 打包大小
 
-| Package name               | ES6 bundle sizes | ES5 bundle sizes |
-| -------------------------- | ---------------- | ---------------- |
-| draggable.bundle.js        | ~11kb            | ~19.2kb          |
-| draggable.bundle.legacy.js | ~19.2kb          | ~25.63kb         |
-| draggable.js               | ~8.06kb          | ~15.36kb         |
-| sortable.js                | ~8.93kb          | ~16.51kb         |
-| swappable.js               | ~8.56kb          | ~16.14kb         |
-| droppable.js               | ~8.8kb           | ~16.55kb         |
-| plugins.js                 | ~2.37kb          | ~8.76kb          |
-| plugins/collidable.js      | ~1.45kb          | ~7.81kb          |
-| plugins/snappable.js       | ~1.19kb          | ~6.94kb          |
-| plugins/swap-animation.js  | ~1kb             | ~6.65kb          |
+| 包名                       | ES6 打包大小 | ES5 打包大小 |
+| -------------------------- | ------------ | ------------ |
+| draggable.bundle.js        | ~11kb        | ~19.2kb      |
+| draggable.bundle.legacy.js | ~19.2kb      | ~25.63kb     |
+| draggable.js               | ~8.06kb      | ~15.36kb     |
+| sortable.js                | ~8.93kb      | ~16.51kb     |
+| swappable.js               | ~8.56kb      | ~16.14kb     |
+| droppable.js               | ~8.8kb       | ~16.55kb     |
+| plugins.js                 | ~2.37kb      | ~8.76kb      |
+| plugins/collidable.js      | ~1.45kb      | ~7.81kb      |
+| plugins/snappable.js       | ~1.19kb      | ~6.94kb      |
+| plugins/swap-animation.js  | ~1kb         | ~6.65kb      |
 
-## Documentation
+## 文档
 
-You can find the documentation for each module within their respective directories.
+下面分模块查看文档
 
 - [Draggable](src/Draggable)
   - [DragEvent](src/Draggable/DragEvent)
@@ -119,16 +113,15 @@ You can find the documentation for each module within their respective directori
 - [Swappable](src/Swappable)
   - [SwappableEvent](src/Swappable/SwappableEvent)
 
-## Running examples
+## 运行例子
 
-To run the `examples` project locally, simply run the following from the `draggable` root:
+为了在本地运行 `examples` 项目，只需要在项目根目录下执行命令:
 
 ```
 yarn && yarn start
 ```
 
-This will start a server that hosts the contents of `examples/`. It also watches for file
-changes from both `src/` and `examples/src` and reloads the browser.
+将会启动一个托管 `examples/`目录的 Web 服务器，并且可观察 `src/` 和 `examples/src` 目录下内容的变化，从而进行热加载
 
 ## Contributing
 

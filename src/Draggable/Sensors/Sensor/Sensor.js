@@ -1,49 +1,18 @@
-/**
- * Base sensor class. Extend from this class to create a new or custom sensor
- * @class Sensor
- * @module Sensor
- */
+// 传感器基类
 export default class Sensor {
-  /**
-   * Sensor constructor.
-   * @constructs Sensor
-   * @param {HTMLElement[]|NodeList|HTMLElement} containers - Containers
-   * @param {Object} options - Options
-   */
+  // 传感器容器，其中包含一组HTML元素
   constructor(containers = [], options = {}) {
-    /**
-     * Current containers
-     * @property containers
-     * @type {HTMLElement[]}
-     */
     this.containers = [...containers];
-
-    /**
-     * Current options
-     * @property options
-     * @type {Object}
-     */
     this.options = {...options};
 
-    /**
-     * Current drag state
-     * @property dragging
-     * @type {Boolean}
-     */
+    // 释放正在发生拖拽行为
     this.dragging = false;
 
-    /**
-     * Current container
-     * @property currentContainer
-     * @type {HTMLElement}
-     */
+    // 传感器的当前容器
     this.currentContainer = null;
   }
 
-  /**
-   * Attaches sensors event listeners to the DOM
-   * @return {Sensor}
-   */
+  // 将传感器绑定到事件监听中
   attach() {
     return this;
   }
@@ -74,15 +43,13 @@ export default class Sensor {
     this.containers = this.containers.filter((container) => !containers.includes(container));
   }
 
-  /**
-   * Triggers event on target element
-   * @param {HTMLElement} element - Element to trigger event on
-   * @param {SensorEvent} sensorEvent - Sensor event to trigger
-   */
+  //  传感器触发事件
   trigger(element, sensorEvent) {
     const event = document.createEvent('Event');
     event.detail = sensorEvent;
     event.initEvent(sensorEvent.type, true, true);
+
+    // 原生Event事件实例的dispatchEvent用于触发事件
     element.dispatchEvent(event);
     this.lastEvent = sensorEvent;
 

@@ -1,29 +1,27 @@
-## Abstract event
+## 抽象事件
 
-This is the base class for all events draggable emits. Inherit from this class for creating
-your own custom events.
-
+这是整个拖拽库能够触发的事件基类，开发者基于该基类创建自定义事件类型
 | | |
-| --------------------- | ---------------------------------------------------------- |
-| **Specification**     | `AbstractEvent`                                            |
-| **Interface**         | `AbstractEvent`                                            |
-| **Cancelable**        | false                                                      |
-| **Cancel action**     | -                                                          |
-| **type**              | `event`                                                    |
+| ----------------- | --------------- |
+| **Specification** | `AbstractEvent` |
+| **Interface** | `AbstractEvent` |
+| **Cancelable** | false |
+| **Cancel action** | - |
+| **type** | `event` |
 
 ### API
 
 **`new AbstractEvent(data: Object): AbstractEvent`**  
-Creates an `AbstractEvent` instance.
+创建一个 `AbstractEvent` 实例.
 
 **`abstractEvent.cancel(data: Object): null`**  
-Cancels drag start event.
+取消拖拽开始行为.
 
 **`abstractEvent.canceled(): Boolean`**  
-Checks if event has been canceled.
+检测事件是否被取消.
 
 **`abstractEvent.type: String`**  
-Read-only property to find out event type
+事件类型
 
 **`abstractEvent.cancelable: String`**  
-Read-only property to check if event is cancelable
+检测事件是否可被取消

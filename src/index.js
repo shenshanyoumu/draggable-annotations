@@ -1,3 +1,4 @@
+// 定义整个Draggable库的事件基类和插件基类
 import AbstractEvent from 'shared/AbstractEvent';
 import AbstractPlugin from 'shared/AbstractPlugin';
 

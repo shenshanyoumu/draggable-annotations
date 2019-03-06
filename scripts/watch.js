@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const {createConfig: createDevelopmentConfig} = require('./build/development');
+
 const {runner} = require('./build/utils');
 
 const compiler = webpack(createDevelopmentConfig({analyser: false}));

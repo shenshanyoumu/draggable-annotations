@@ -9,33 +9,17 @@ import AbstractEvent from 'shared/AbstractEvent';
 export class DraggableEvent extends AbstractEvent {
   static type = 'draggable';
 
-  /**
-   * Draggable instance
-   * @property draggable
-   * @type {Draggable}
-   * @readonly
-   */
   get draggable() {
     return this.data.draggable;
   }
 }
 
-/**
- * Draggable initialized event
- * @class DraggableInitializedEvent
- * @module DraggableInitializedEvent
- * @extends DraggableEvent
- */
+// 可拖拽初始化事件
 export class DraggableInitializedEvent extends DraggableEvent {
   static type = 'draggable:initialize';
 }
 
-/**
- * Draggable destory event
- * @class DraggableInitializedEvent
- * @module DraggableDestroyEvent
- * @extends DraggableDestroyEvent
- */
+// 可拖拽销毁事件
 export class DraggableDestroyEvent extends DraggableEvent {
   static type = 'draggable:destroy';
 }

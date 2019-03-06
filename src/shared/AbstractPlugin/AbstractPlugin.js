@@ -1,15 +1,6 @@
-/**
- * All draggable plugins inherit from this class.
- * @abstract
- * @class AbstractPlugin
- * @module AbstractPlugin
- */
+// 插件基类
 export default class AbstractPlugin {
-  /**
-   * AbstractPlugin constructor.
-   * @constructs AbstractPlugin
-   * @param {Draggable} draggable - Draggable instance
-   */
+  //  插件实例保存一个可拖拽对象实例
   constructor(draggable) {
     /**
      * Draggable instance
@@ -19,18 +10,12 @@ export default class AbstractPlugin {
     this.draggable = draggable;
   }
 
-  /**
-   * Override to add listeners
-   * @abstract
-   */
+  //  将插件与事件监听器进行绑定
   attach() {
     throw new Error('Not Implemented');
   }
 
-  /**
-   * Override to remove listeners
-   * @abstract
-   */
+  // 将插件与事件监听器分离
   detach() {
     throw new Error('Not Implemented');
   }

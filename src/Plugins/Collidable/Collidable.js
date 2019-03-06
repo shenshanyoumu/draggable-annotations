@@ -2,30 +2,18 @@ import AbstractPlugin from 'shared/AbstractPlugin';
 import {closest} from 'shared/utils';
 import {CollidableInEvent, CollidableOutEvent} from './CollidableEvent';
 
+// 基于ES6的Symbol类型创建的实例，不会存在属性冲突问题
 const onDragMove = Symbol('onDragMove');
 const onDragStop = Symbol('onDragStop');
 const onRequestAnimationFrame = Symbol('onRequestAnimationFrame');
 
-/**
- * Collidable plugin which detects colliding elements while dragging
- * @class Collidable
- * @module Collidable
- * @extends AbstractPlugin
- */
+// 该插件用于检测在拖拽过程中的物理碰撞行为
 export default class Collidable extends AbstractPlugin {
-  /**
-   * Collidable constructor.
-   * @constructs Collidable
-   * @param {Draggable} draggable - Draggable instance
-   */
+  // 传递可拖拽的元素
   constructor(draggable) {
     super(draggable);
 
-    /**
-     * Keeps track of currently colliding elements
-     * @property {HTMLElement|null} currentlyCollidingElement
-     * @type {HTMLElement|null}
-     */
+    // 记录当前正在碰撞的元素
     this.currentlyCollidingElement = null;
 
     /**
@@ -35,11 +23,7 @@ export default class Collidable extends AbstractPlugin {
      */
     this.lastCollidingElement = null;
 
-    /**
-     * Animation frame for finding colliding elements
-     * @property {Number|null} currentAnimationFrame
-     * @type {Number|null}
-     */
+    // 碰撞动画帧
     this.currentAnimationFrame = null;
 
     this[onDragMove] = this[onDragMove].bind(this);
@@ -47,9 +31,7 @@ export default class Collidable extends AbstractPlugin {
     this[onRequestAnimationFrame] = this[onRequestAnimationFrame].bind(this);
   }
 
-  /**
-   * Attaches plugins event listeners
-   */
+  // 绑定特定的事件类型
   attach() {
     this.draggable.on('drag:move', this[onDragMove]).on('drag:stop', this[onDragStop]);
   }
@@ -61,10 +43,7 @@ export default class Collidable extends AbstractPlugin {
     this.draggable.off('drag:move', this[onDragMove]).off('drag:stop', this[onDragStop]);
   }
 
-  /**
-   * Returns current collidables based on `collidables` option
-   * @return {HTMLElement[]}
-   */
+  // 获得与当前拖拽的元素能发生碰撞的元素
   getCollidables() {
     const collidables = this.draggable.options.collidables;
 
